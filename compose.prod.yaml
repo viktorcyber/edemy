@@ -1,5 +1,6 @@
 services:
   server:
+    image: ${IMAGE_NAMESPACE:-edemy}/server:${IMAGE_TAG:-latest}
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -16,6 +17,7 @@ services:
           memory: 512M
 
   client:
+    image: ${IMAGE_NAMESPACE:-edemy}/client:${IMAGE_TAG:-latest}
     build:
       context: ./client
       dockerfile: Dockerfile
