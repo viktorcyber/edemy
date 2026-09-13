@@ -6,4 +6,3 @@ class AccountsConfig(AppConfig):
 
     def ready(self):
         """Import signals when app is ready."""
-        import accounts.signals

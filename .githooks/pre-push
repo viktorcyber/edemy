@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+set -eu
+
+root_dir=$(git rev-parse --show-toplevel)
+cd "$root_dir"
+
+echo "Running client lint..."
+(cd client && bun run lint)
+
+echo "Running server lint..."
+(cd server && uv run ruff check .)
+
+echo "Checking server formatting..."
+(cd server && uv run ruff format --check)
+
+echo "Pre-push checks passed."

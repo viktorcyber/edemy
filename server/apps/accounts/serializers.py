@@ -1,6 +1,5 @@
-from rest_framework import serializers
-from core.serializers import DynamicFieldsModelSerializer
 from accounts.models import User
+from core.serializers import DynamicFieldsModelSerializer
 
 
 class UserSerializer(DynamicFieldsModelSerializer):

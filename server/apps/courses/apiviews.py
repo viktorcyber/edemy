@@ -1,8 +1,8 @@
-from rest_framework import generics, viewsets
+from core.paginators import DynamicPaginationMixin, StandardResultsSetPagination
 from courses.models import Category, Course
 from courses.serializers import CategorySerializer, CourseSerializer
-from core.paginators import StandardResultsSetPagination, DynamicPaginationMixin
 from elasticsearch_dsl import Q
+from rest_framework import generics, viewsets
 
 
 class CategoryViewSet(viewsets.GenericViewSet, generics.ListAPIView):

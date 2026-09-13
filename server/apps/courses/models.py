@@ -1,10 +1,10 @@
 import uuid
-from django.db import models
-from django.core.validators import MinValueValidator
-from django.utils.translation import gettext_lazy as _
-from django.contrib.auth import get_user_model
-from core.models import TimestampMixin, IsActiveMixin, SlugMixin
 
+from core.models import IsActiveMixin, SlugMixin, TimestampMixin
+from django.contrib.auth import get_user_model
+from django.core.validators import MinValueValidator
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 User = get_user_model()
 

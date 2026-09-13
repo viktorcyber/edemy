@@ -1,6 +1,6 @@
-import inngest
 import logging
-from django.conf import settings
+
+import inngest
 
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.StreamHandler())

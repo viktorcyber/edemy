@@ -1,7 +1,8 @@
 import inngest
-from config.client import inngest_client
-from django.contrib.auth import get_user_model
 from accounts.services import ClerkWebhookService
+from django.contrib.auth import get_user_model
+
+from config.client import inngest_client
 
 User = get_user_model()
 

@@ -1,5 +1,5 @@
-from django.core.management.base import BaseCommand
 from django.core.management import call_command
+from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
@@ -11,7 +11,7 @@ class Command(BaseCommand):
         try:
             call_command("loaddata", "data.json")
             self.stdout.write(self.style.SUCCESS("Successfully seeded the database."))
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             self.stdout.write(
                 self.style.ERROR(f"Error occurred while loading fixtures: {e}")
             )

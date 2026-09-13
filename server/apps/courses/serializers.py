@@ -1,6 +1,5 @@
-from rest_framework import serializers
-from courses.models import Category, Course
 from core.serializers import DynamicFieldsModelSerializer
+from courses.models import Category, Course
 
 
 class CategorySerializer(DynamicFieldsModelSerializer):

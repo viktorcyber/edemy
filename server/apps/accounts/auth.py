@@ -1,11 +1,11 @@
+from dataclasses import dataclass
+
+from clerk_backend_api import AuthenticateRequestOptions, authenticate_request
+from clerk_backend_api.security.types import AuthErrorReason
+from django.conf import settings
 from rest_framework import status
 from rest_framework.authentication import BaseAuthentication
 from rest_framework.exceptions import AuthenticationFailed
-from clerk_backend_api import AuthenticateRequestOptions, authenticate_request
-from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
-from clerk_backend_api.security.types import AuthErrorReason
-from dataclasses import dataclass
 
 
 @dataclass
@@ -51,7 +51,7 @@ class ClerkAuthentication(BaseAuthentication):
 
             user = ClerkUser(id=state.payload["sub"], payload=state.payload)
             return (user, state)
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             request.error_message = str(e)
             return None
 

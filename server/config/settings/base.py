@@ -12,18 +12,19 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 
 import os
 import sys
-import dj_database_url
 from pathlib import Path
-from dotenv import load_dotenv
-from django.core.management.utils import get_random_secret_key
+
+import dj_database_url
 from django.core.exceptions import ImproperlyConfigured
+from django.core.management.utils import get_random_secret_key
+from dotenv import load_dotenv
 
 
 def get_env_value(env_variable, default_value=None):
     try:
         return os.environ.get(env_variable, default_value)
     except KeyError:
-        error_msg = "Set the {} environment variable".format(env_variable)
+        error_msg = f"Set the {env_variable} environment variable"
         raise ImproperlyConfigured(error_msg)
 
 
@@ -319,7 +320,7 @@ CKEDITOR_5_CONFIGS = {
                 "blockQuote",
                 "imageUpload",
             ],
-        }
+        },
     },
     "extends": {
         "blockToolbar": [

@@ -1,9 +1,6 @@
 from .base import *
 
-
-REST_FRAMEWORK.update({
-    "TEST_REQUEST_DEFAULT_FORMAT": "json"
-})
+REST_FRAMEWORK.update({"TEST_REQUEST_DEFAULT_FORMAT": "json"})
 
 DATABASES = {
     "default": {

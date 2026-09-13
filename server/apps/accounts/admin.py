@@ -1,9 +1,10 @@
+from accounts.forms import UserChangeForm, UserCreationForm
 from django.contrib import admin
-from django.contrib import admin
+from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
-from accounts.forms import UserChangeForm, UserCreationForm
-from accounts.models import User
+
+User = get_user_model()
 
 
 class UserAdmin(BaseUserAdmin):

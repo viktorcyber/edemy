@@ -36,3 +36,6 @@ dev = [
     "pytest-factoryboy>=2.8.1",
     "ruff>=0.16.4",
 ]
+
+[tool.ruff.lint]
+ignore = ["RUF012"]

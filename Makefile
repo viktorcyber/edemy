@@ -1,11 +1,12 @@
 # Makefile
 
-.PHONY: help watch up down build migrate makemigrations shell test test-e2e lint logs
+.PHONY: help setup-hooks watch up down build migrate makemigrations shell test test-e2e lint logs
 
 COMPOSE := docker compose
 
 help:
 	@echo "Available commands:"
+	@echo "  make setup-hooks   - Enable local Git pre-push checks"
 	@echo "  make watch          - Watch for changes and rebuild"
 	@echo "  make up             - Start all services"
 	@echo "  make down           - Stop all services"
@@ -17,6 +18,9 @@ help:
 	@echo "  make test-e2e       - Run Playwright E2E tests"
 	@echo "  make lint           - Lint backend + frontend"
 	@echo "  make logs           - View server logs"
+
+setup-hooks:
+	git config core.hooksPath .githooks
 
 watch:
 	$(COMPOSE) watch

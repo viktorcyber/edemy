@@ -1,7 +1,7 @@
 from django.contrib.admin import AdminSite as BaseAdminSite
-from django.urls import path, reverse
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
+from django.urls import path, reverse
 
 
 @staff_member_required

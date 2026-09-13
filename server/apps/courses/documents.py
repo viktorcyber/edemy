@@ -1,6 +1,6 @@
+from courses.models import Course
 from django_elasticsearch_dsl import Document, fields
 from django_elasticsearch_dsl.registries import registry
-from courses.models import Course
 
 
 @registry.register_document

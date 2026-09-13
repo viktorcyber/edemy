@@ -1,11 +1,11 @@
-import hashlib
 from urllib.parse import urlencode
-from django.db import models
-from django.contrib.auth.models import AbstractUser
-from django.utils.translation import gettext_lazy as _
+
 from cloudinary_storage.storage import MediaCloudinaryStorage
 from django.contrib import admin
+from django.contrib.auth.models import AbstractUser
+from django.db import models
 from django.utils.html import mark_safe
+from django.utils.translation import gettext_lazy as _
 
 
 class User(AbstractUser):

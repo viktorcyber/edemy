@@ -1,6 +1,5 @@
 from .base import *
 
-
 ALLOWED_HOSTS = get_env_value("ALLOWED_HOSTS").split(",")
 
 
@@ -98,6 +97,6 @@ CSP_CONNECT_SRC = "'self' https://api.example.com"
 
 MEDIA_ROOT = "/var/www/media/"
 
-SPECTACULAR_SETTINGS.update({
-    "SERVE_PERMISSIONS": "rest_framework.permissions.IsAdminUser"
-})
+SPECTACULAR_SETTINGS.update(
+    {"SERVE_PERMISSIONS": "rest_framework.permissions.IsAdminUser"}
+)
