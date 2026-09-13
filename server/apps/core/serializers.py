@@ -20,4 +20,3 @@ class DynamicFieldsModelSerializer(serializers.ModelSerializer):
     class Meta:
         fields = "__all__"
         read_only_fields = ["date_created", "date_updated"]
-    

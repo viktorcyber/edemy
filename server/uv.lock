@@ -428,6 +428,28 @@ wheels = [
 ]
 
 [[package]]
+name = "django-chartjs"
+version = "2.3.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b8/93/875137021a36005b777f9c7b6468dac5b20bf5aea62e4417ffe19d5875dd/django-chartjs-2.3.0.tar.gz", hash = "sha256:576ad20cfb6d18efcd3142784752cc8f7445601180d74fbaa6af9fd2f866899b", size = 589466, upload-time = "2022-02-08T11:10:09.766Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a1/a9/a9684ca39c70b84edbf15c7e506fabe46c639806b42d23e6356f2c441af0/django_chartjs-2.3.0-py3-none-any.whl", hash = "sha256:3cc1660ff1403c021b3ede163062120e36fde194e97e1a84a7eb1a8f09223183", size = 609464, upload-time = "2022-02-08T11:10:06.433Z" },
+]
+
+[[package]]
+name = "django-ckeditor-5"
+version = "0.2.20"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "pillow" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4b/e0/2dbbf2eb59411bf063646ac541753d1cdeacdcd2bb3defb03a456369a2de/django_ckeditor_5-0.2.20.tar.gz", hash = "sha256:7c3d67cc8bbce3564108578b8fafe8e752c6ad4fbf45b1ffee821045ba2c0e96", size = 3049978, upload-time = "2026-02-21T20:40:38.923Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b0/52/e9ed3f359d06cf7c7476e274059f5318ac81e82e20de9f4fcf714a576dea/django_ckeditor_5-0.2.20-py3-none-any.whl", hash = "sha256:dfff659822fb8d42f55b43265cb51bf8b1e0797dc850e0bf5547644daeaa3fff", size = 3143416, upload-time = "2026-02-21T20:40:37.135Z" },
+]
+
+[[package]]
 name = "django-cloudinary-storage"
 version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -464,6 +486,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/00/da/df67a8e407ab6141affee4ee5cb2704403b9d5465cc35abbb42f5190a3fa/django_debug_toolbar-7.1.1.tar.gz", hash = "sha256:2fb4093d95e6f87258606c55f4d2aa45d1847b17a415525a9dceac02e937a836", size = 363531, upload-time = "2026-08-14T13:18:47.219Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/de/c8/f473a965186510233129c2ab22e4808a1938afcbe9a287145d17693adf70/django_debug_toolbar-7.1.1-py3-none-any.whl", hash = "sha256:e1385b22fb17bff4dc51cf782679a7926676405e8d013ada1e3d8a6bfc47fdb3", size = 304387, upload-time = "2026-08-14T13:18:45.642Z" },
+]
+
+[[package]]
+name = "django-elasticsearch-dsl"
+version = "8.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "elasticsearch" },
+    { name = "six" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/91/d6/5a79e4061ca0551a2b100ed66a2f0a897eb2ee1ad555b18bf7bfb4f4e2ed/django_elasticsearch_dsl-8.2.tar.gz", hash = "sha256:6ecbe9688db7b0314f12067b781aa02750c849438b3ddd513a01054c56e21661", size = 31480, upload-time = "2025-06-23T22:31:21.763Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/75/50/43a0b89152ff5f4f136becd8102e073805661a8d76f59f569d806c2dc799/django_elasticsearch_dsl-8.2-py2.py3-none-any.whl", hash = "sha256:c674881f9f14ed7566a9eb384237c06812bffaf3c7a4ef387b8d7a66bb107689", size = 20940, upload-time = "2025-06-23T22:31:19.352Z" },
 ]
 
 [[package]]
@@ -524,6 +559,48 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/28/82/eb18e2108b8ceaa50a01d2cdb35ab5ce198c18f062448b2d29d6e89aabeb/drf_spectacular_sidecar-2026.8.1.tar.gz", hash = "sha256:9d9ee678e5ec70cdda2c7ed95cafcdb6141664dc3e11def8a8599c8ad36cf6f5", size = 2603635, upload-time = "2026-08-01T12:09:03.088Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/3e/5b/5ea443b8c24b4a4815a6467a158c4511dfe8bed83f8861a27bdb29c4fc47/drf_spectacular_sidecar-2026.8.1-py3-none-any.whl", hash = "sha256:6b8784d3e8c6bd9aa740b14e874640697ab1bc67f5232d74fdd9ef84eaea6bc3", size = 2626283, upload-time = "2026-08-01T12:09:01.705Z" },
+]
+
+[[package]]
+name = "elastic-transport"
+version = "8.19.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "certifi" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/fc/63/c61700c42f74d70a4ae11394c619cf91b837b500144166e828546f1fdd8d/elastic_transport-8.19.0.tar.gz", hash = "sha256:32afed2a70dad80511476c821b2cf823f35a82153289765f6b2e2eb8cb0de099", size = 76409, upload-time = "2026-07-06T16:57:01.664Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bd/46/a6091ee84351b61bfb55cf615e538c38c1be4cfceae12f952953eb8d446c/elastic_transport-8.19.0-py3-none-any.whl", hash = "sha256:97ab35de878c7f4c7ebf8840cbc8ff1ff01d9dbc0e977e52d82715b155678b4f", size = 65085, upload-time = "2026-07-06T16:57:00.233Z" },
+]
+
+[[package]]
+name = "elasticsearch"
+version = "8.19.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "elastic-transport" },
+    { name = "python-dateutil" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6b/79/365e306017a9fcfbbefab1a3b588d2404bea8806b36766ff0f886509a20e/elasticsearch-8.19.3.tar.gz", hash = "sha256:e84dd618a220cac25b962790085045dd27ac72e01c0a5d81bd29a2d47a71f03f", size = 800298, upload-time = "2025-12-23T12:56:00.72Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/56/0f/ac126833c385b06166d41c486e4911f58ad7791fd1a53dd6e0b8d16ff214/elasticsearch-8.19.3-py3-none-any.whl", hash = "sha256:fe1db2555811192e8a1be78b01234d0a49d32b185ea7eeeb6f059331dee32838", size = 952820, upload-time = "2025-12-23T12:55:56.796Z" },
+]
+
+[[package]]
+name = "elasticsearch-dsl"
+version = "8.18.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "elastic-transport" },
+    { name = "elasticsearch" },
+    { name = "python-dateutil" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/72/6d/00cbeee412a2dc825f0df18c98463a2e0b423b86800fba6c50ea2c627962/elasticsearch_dsl-8.18.0.tar.gz", hash = "sha256:763465dba9eae166add10567e924c65730aa122819b08bfe9a077e91b13b30d1", size = 31886, upload-time = "2025-04-16T11:54:14.412Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/77/a9/b200790a22585aeb023d88bd8b9fb222820e2976ce4239d401670116ae3c/elasticsearch_dsl-8.18.0-py3-none-any.whl", hash = "sha256:0522c5bb20c7abae69855109e650bf1166d486cbf706b5e1b29c28936a9102a3", size = 10406, upload-time = "2025-04-16T11:54:12.677Z" },
 ]
 
 [[package]]
@@ -1393,10 +1470,15 @@ dependencies = [
     { name = "clerk-backend-api" },
     { name = "dj-database-url" },
     { name = "django" },
+    { name = "django-chartjs" },
+    { name = "django-ckeditor-5" },
     { name = "django-cloudinary-storage" },
     { name = "django-cors-headers" },
+    { name = "django-elasticsearch-dsl" },
     { name = "djangorestframework" },
     { name = "drf-spectacular", extra = ["sidecar"] },
+    { name = "elasticsearch" },
+    { name = "elasticsearch-dsl" },
     { name = "gunicorn" },
     { name = "inngest" },
     { name = "pillow" },
@@ -1422,10 +1504,15 @@ requires-dist = [
     { name = "clerk-backend-api", specifier = ">=7.0.0" },
     { name = "dj-database-url", specifier = ">=3.1.2" },
     { name = "django", specifier = ">=6.1" },
+    { name = "django-chartjs", specifier = ">=2.3.0" },
+    { name = "django-ckeditor-5", specifier = ">=0.2.20" },
     { name = "django-cloudinary-storage", specifier = ">=0.3.0" },
     { name = "django-cors-headers", specifier = ">=4.9.0" },
+    { name = "django-elasticsearch-dsl", specifier = ">=8,<9" },
     { name = "djangorestframework", specifier = ">=3.18.0" },
     { name = "drf-spectacular", extras = ["sidecar"], specifier = ">=0.30.0" },
+    { name = "elasticsearch", specifier = ">=8,<9" },
+    { name = "elasticsearch-dsl", specifier = ">8,<9" },
     { name = "gunicorn", specifier = ">=26.2.0" },
     { name = "inngest", specifier = ">=0.5.19" },
     { name = "pillow", specifier = ">=12.3.0" },

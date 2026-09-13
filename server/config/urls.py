@@ -7,12 +7,48 @@ from drf_spectacular.views import (
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     # Admin
+    path("admin/doc/", include("django.contrib.admindocs.urls")),
+    path(
+        "admin/password_reset/",
+        auth_views.PasswordResetView.as_view(
+            extra_context={"site_header": admin.site.site_header}
+        ),
+        name="admin_password_reset",
+    ),
+    path(
+        "admin/password_reset/done/",
+        auth_views.PasswordResetDoneView.as_view(
+            extra_context={"site_header": admin.site.site_header}
+        ),
+        name="password_reset_done",
+    ),
+    path(
+        "reset/<uidb64>/<token>/",
+        auth_views.PasswordResetConfirmView.as_view(
+            extra_context={"site_header": admin.site.site_header}
+        ),
+        name="password_reset_confirm",
+    ),
+    path(
+        "reset/done/",
+        auth_views.PasswordResetCompleteView.as_view(
+            extra_context={"site_header": admin.site.site_header}
+        ),
+        name="password_reset_complete",
+    ),
+    # path(
+    #     "admin/statistics",
+    #     admin.site.admin_view(admin_statistics),
+    #     name="admin_statistics"
+    # ),
     path("admin/", admin.site.urls),
-    # API URLs
-    path("", include("apps.urls")),
+    # APIs
+    re_path(r"^", include("apps.urls")),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     # Swagger
     path("schema/", SpectacularAPIView.as_view(), name="schema"),

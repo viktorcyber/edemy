@@ -2,6 +2,7 @@ from rest_framework import generics, viewsets
 from courses.models import Category, Course
 from courses.serializers import CategorySerializer, CourseSerializer
 from core.paginators import StandardResultsSetPagination, DynamicPaginationMixin
+from elasticsearch_dsl import Q
 
 
 class CategoryViewSet(viewsets.GenericViewSet, generics.ListAPIView):
@@ -13,6 +14,18 @@ class CategoryViewSet(viewsets.GenericViewSet, generics.ListAPIView):
 
 class CourseViewSet(DynamicPaginationMixin, viewsets.ReadOnlyModelViewSet):
     """Read-only view set for courses"""
+
     queryset = Course.objects.all().order_by("-date_created")
     serializer_class = CourseSerializer
     pagination_class = StandardResultsSetPagination
+
+    def generate_q_expression(self, query):
+        return Q(
+            "multi_match",
+            query=query,
+            fields=[
+                "name",
+                "description",
+            ],
+            fuzziness="auto",
+        )

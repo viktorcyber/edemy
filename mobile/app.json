@@ -35,6 +35,13 @@
       "expo-router",
       "expo-status-bar",
       [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true,
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data."
+        }
+      ],
+      [
         "expo-dev-client",
         {
           "launchMode": "most-recent",
@@ -43,7 +50,12 @@
             "defaultLaunchURL": "http://10.0.0.2:8081"
           }
         }
-      ]
+      ],
+      "@clerk/expo",
+      "@clerk/expo-google-signin",
+      "expo-apple-authentication",
+      "expo-font",
+      "expo-web-browser"
     ],
     "extra": {
       "router": {},

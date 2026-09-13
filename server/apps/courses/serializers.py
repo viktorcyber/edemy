@@ -9,7 +9,7 @@ class CategorySerializer(DynamicFieldsModelSerializer):
 
 
 class CourseSerializer(DynamicFieldsModelSerializer):
-    category = CategorySerializer(fields=('id', 'slug', 'name'))
-    
+    category = CategorySerializer(fields=("id", "slug", "name"))
+
     class Meta(DynamicFieldsModelSerializer.Meta):
         model = Course

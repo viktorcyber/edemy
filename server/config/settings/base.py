@@ -23,7 +23,7 @@ def get_env_value(env_variable, default_value=None):
     try:
         return os.environ.get(env_variable, default_value)
     except KeyError:
-        error_msg = 'Set the {} environment variable'.format(env_variable)
+        error_msg = "Set the {} environment variable".format(env_variable)
         raise ImproperlyConfigured(error_msg)
 
 
@@ -55,17 +55,19 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'django.contrib.postgres',
+    "django.contrib.postgres",
     "cloudinary_storage",
     "cloudinary",
     "rest_framework",
     "corsheaders",
+    "django_elasticsearch_dsl",
     "drf_spectacular",
     "drf_spectacular_sidecar",
+    "django_ckeditor_5",
     "core.apps.CoreConfig",
     "accounts.apps.AccountsConfig",
     "courses.apps.CoursesConfig",
-    "orders.apps.OrdersConfig"
+    "orders.apps.OrdersConfig",
 ]
 
 MIDDLEWARE = [
@@ -138,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'Asia/Ho_Chi_Minh'
+TIME_ZONE = "Asia/Ho_Chi_Minh"
 
 USE_I18N = True
 
@@ -152,9 +154,9 @@ STATIC_URL = "static/"
 
 MEDIA_URL = "/media/"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static"),
+STATIC_ROOT = (os.path.join(BASE_DIR, "static"),)
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media"),
+MEDIA_ROOT = (os.path.join(BASE_DIR, "media"),)
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
@@ -195,7 +197,7 @@ REST_FRAMEWORK = {
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.URLPathVersioning",
     "ALLOWED_VERSIONS": ["v1", "v2"],
     "DEFAULT_VERSION": "v1",
-    'EXCEPTION_HANDLER': 'config.handlers.sentry_exception_handler',
+    "EXCEPTION_HANDLER": "config.handlers.sentry_exception_handler",
 }
 
 
@@ -203,11 +205,7 @@ REST_FRAMEWORK = {
 # https://drf-spectacular.readthedocs.io/en/latest/
 
 SPECTACULAR_SETTINGS = {
-    "SERVE_PERMISSIONS": [
-        "rest_framework.permissions.AllowAny"
-        if DEBUG
-        else "rest_framework.permissions.IsAdminUser"
-    ],
+    "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
     "COMPONENT_SPLIT_PATCH": True,
     "COMPONENT_SPLIT_REQUEST": True,
     "TITLE": "Edemy 🎓",
@@ -236,9 +234,7 @@ SPECTACULAR_SETTINGS = {
 CLERK_SECRET_KEY = get_env_value("CLERK_SECRET_KEY")
 CLERK_JWT_KEY = get_env_value("CLERK_JWT_KEY")
 CLERK_AUTHORIZED_PARTIES = [
-    p.strip()
-    for p in get_env_value("CLERK_AUTHORIZED_PARTIES").split(",")
-    if p.strip()
+    p.strip() for p in get_env_value("CLERK_AUTHORIZED_PARTIES").split(",") if p.strip()
 ]
 
 
@@ -267,7 +263,7 @@ sentry_sdk.init(
     profile_lifecycle="trace",
     integrations=[
         DjangoIntegration(
-            transaction_style='url',
+            transaction_style="url",
             middleware_spans=True,
             signals_spans=True,
             signals_denylist=[
@@ -279,3 +275,173 @@ sentry_sdk.init(
         ),
     ],
 )
+
+
+# Elasticsearch
+# https://django-elasticsearch-dsl.readthedocs.io/en/latest/settings.html
+
+ELASTICSEARCH_DSL = {
+    "default": {"hosts": get_env_value("ELASTICSEARCH_URL")},
+}
+
+# Optional: Configure index settings
+ELASTICSEARCH_DSL_INDEX_SETTINGS = {
+    "number_of_shards": 1,  # Number of primary shards
+}
+
+
+# CKEditor 5
+# https://pypi.org/project/django-ckeditor-5/
+
+customColorPalette = [
+    {"color": "hsl(4, 90%, 58%)", "label": "Red"},
+    {"color": "hsl(340, 82%, 52%)", "label": "Pink"},
+    {"color": "hsl(291, 64%, 42%)", "label": "Purple"},
+    {"color": "hsl(262, 52%, 47%)", "label": "Deep Purple"},
+    {"color": "hsl(231, 48%, 48%)", "label": "Indigo"},
+    {"color": "hsl(207, 90%, 54%)", "label": "Blue"},
+]
+
+CKEDITOR_5_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+CKEDITOR_5_CONFIGS = {
+    "default": {
+        "extraPlugins": "uploadimage",
+        "filebrowserUploadUrl": "/ckeditor/upload/",
+        "toolbar": {
+            "items": [
+                "heading",
+                "|",
+                "bold",
+                "italic",
+                "link",
+                "bulletedList",
+                "numberedList",
+                "blockQuote",
+                "imageUpload",
+            ],
+        }
+    },
+    "extends": {
+        "blockToolbar": [
+            "paragraph",
+            "heading1",
+            "heading2",
+            "heading3",
+            "|",
+            "bulletedList",
+            "numberedList",
+            "|",
+            "blockQuote",
+        ],
+        "toolbar": {
+            "items": [
+                "heading",
+                "|",
+                "outdent",
+                "indent",
+                "|",
+                "bold",
+                "italic",
+                "link",
+                "underline",
+                "strikethrough",
+                "code",
+                "subscript",
+                "superscript",
+                "highlight",
+                "|",
+                "codeBlock",
+                "sourceEditing",
+                "insertImage",
+                "bulletedList",
+                "numberedList",
+                "todoList",
+                "|",
+                "blockQuote",
+                "imageUpload",
+                "|",
+                "fontSize",
+                "fontFamily",
+                "fontColor",
+                "fontBackgroundColor",
+                "mediaEmbed",
+                "removeFormat",
+                "insertTable",
+            ],
+            "shouldNotGroupWhenFull": "true",
+        },
+        "image": {
+            "toolbar": [
+                "imageTextAlternative",
+                "|",
+                "imageStyle:alignLeft",
+                "imageStyle:alignRight",
+                "imageStyle:alignCenter",
+                "imageStyle:side",
+                "|",
+            ],
+            "styles": [
+                "full",
+                "side",
+                "alignLeft",
+                "alignRight",
+                "alignCenter",
+            ],
+        },
+        "table": {
+            "contentToolbar": [
+                "tableColumn",
+                "tableRow",
+                "mergeTableCells",
+                "tableProperties",
+                "tableCellProperties",
+            ],
+            "tableProperties": {
+                "borderColors": customColorPalette,
+                "backgroundColors": customColorPalette,
+            },
+            "tableCellProperties": {
+                "borderColors": customColorPalette,
+                "backgroundColors": customColorPalette,
+            },
+        },
+        "heading": {
+            "options": [
+                {
+                    "model": "paragraph",
+                    "title": "Paragraph",
+                    "class": "ck-heading_paragraph",
+                },
+                {
+                    "model": "heading1",
+                    "view": "h1",
+                    "title": "Heading 1",
+                    "class": "ck-heading_heading1",
+                },
+                {
+                    "model": "heading2",
+                    "view": "h2",
+                    "title": "Heading 2",
+                    "class": "ck-heading_heading2",
+                },
+                {
+                    "model": "heading3",
+                    "view": "h3",
+                    "title": "Heading 3",
+                    "class": "ck-heading_heading3",
+                },
+            ]
+        },
+    },
+    "list": {
+        "properties": {
+            "styles": "true",
+            "startIndex": "true",
+            "reversed": "true",
+        }
+    },
+}
+
+# Define a constant in settings.py to specify file upload permissions
+CKEDITOR_5_FILE_UPLOAD_PERMISSION = "staff"
+CKEDITOR_5_UPLOAD_PATH = "uploads/"

@@ -6,6 +6,7 @@
       "name": "web3",
       "devDependencies": {
         "@types/node": "^22.8.5",
+        "forge-std": "foundry-rs/forge-std#v1.16.2",
         "hardhat": "^3.15.0",
         "typescript": "~6.0.3",
       },
@@ -139,6 +140,8 @@
     "ethereum-cryptography": ["ethereum-cryptography@2.2.1", "", { "dependencies": { "@noble/curves": "1.4.2", "@noble/hashes": "1.4.0", "@scure/bip32": "1.4.0", "@scure/bip39": "1.3.0" } }, "sha512-r/W8lkHSiTLxUxW8Rf3u4HGB0xQweG2RyETjywylKZSzLWoWAijRz8WCuOtJ6wah+avllXBqZuk29HCCvhEIRg=="],
 
     "fast-equals": ["fast-equals@6.0.3", "", {}, "sha512-IECu4C0fFZFoUC2cA2rDaNUuVIfWIZMwh3tY+ng924vOuD9OaUFFrcIrVwCKbV7TJDkGmrHfhwZ7R0AnHfVhyw=="],
+
+    "forge-std": ["forge-std@github:foundry-rs/forge-std#bf647bd", {}, "foundry-rs-forge-std-bf647bd", "sha512-YRYu4Jg0V000bFg3dCXp8MoIaG6f7/TfgxqBFd7fd1gdU83uL4F3YH1ld8zdF41m+7Qc8Ew6z1/3HSyGC/5l9g=="],
 
     "fsevents": ["fsevents@2.3.3", "", { "os": "darwin" }, "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw=="],
 

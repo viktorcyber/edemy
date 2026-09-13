@@ -5,6 +5,7 @@ from accounts.services import ClerkWebhookService
 
 User = get_user_model()
 
+
 @inngest_client.create_function(
     fn_id="sync-user-from-clerk",
     trigger=[inngest.TriggerEvent(event="clerk/user.*")],
@@ -12,7 +13,7 @@ User = get_user_model()
 def sync_user_from_clerk(ctx: inngest.Context) -> str:
     evt = ctx.event
     data = evt.data
-    
+
     match evt.name:
         case "clerk/user.created" | "clerk/user.updated":
             ClerkWebhookService.handle_user_created_or_updated(data)

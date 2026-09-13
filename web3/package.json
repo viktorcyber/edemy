@@ -4,6 +4,7 @@
   "type": "module",
   "devDependencies": {
     "@types/node": "^22.8.5",
+    "forge-std": "foundry-rs/forge-std#v1.16.2",
     "hardhat": "^3.15.0",
     "typescript": "~6.0.3"
   }

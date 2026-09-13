@@ -8,5 +8,5 @@ class Command(shell.Command):
             "django.urls.resolve",
             "accounts.models",
             "core.models",
-            "courses.models"
+            "courses.models",
         ]

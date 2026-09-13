@@ -7,48 +7,116 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('courses', '0001_initial'),
+        ("courses", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='CourseProgress',
+            name="CourseProgress",
             fields=[
-                ('date_created', models.DateTimeField(auto_now_add=True, db_index=True, null=True)),
-                ('date_updated', models.DateTimeField(auto_now=True, null=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('slug', models.SlugField(blank=True, unique=True)),
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('is_completed', models.BooleanField(default=False)),
-                ('completed_lessons', models.JSONField(blank=True, default=list)),
-                ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_progresses', to='courses.course')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='progresses', to=settings.AUTH_USER_MODEL)),
+                (
+                    "date_created",
+                    models.DateTimeField(auto_now_add=True, db_index=True, null=True),
+                ),
+                ("date_updated", models.DateTimeField(auto_now=True, null=True)),
+                ("is_active", models.BooleanField(default=True)),
+                ("slug", models.SlugField(blank=True, unique=True)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("is_completed", models.BooleanField(default=False)),
+                ("completed_lessons", models.JSONField(blank=True, default=list)),
+                (
+                    "course",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="user_progresses",
+                        to="courses.course",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="progresses",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'constraints': [models.UniqueConstraint(fields=('user', 'course'), name='unique_user_course_progress')],
+                "constraints": [
+                    models.UniqueConstraint(
+                        fields=("user", "course"), name="unique_user_course_progress"
+                    )
+                ],
             },
         ),
         migrations.CreateModel(
-            name='Purchase',
+            name="Purchase",
             fields=[
-                ('date_created', models.DateTimeField(auto_now_add=True, db_index=True, null=True)),
-                ('date_updated', models.DateTimeField(auto_now=True, null=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('slug', models.SlugField(blank=True, unique=True)),
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('status', models.CharField(choices=[('pending', 'Pending'), ('completed', 'Completed'), ('failed', 'Failed')], default='pending', max_length=20)),
-                ('xp_earned', models.PositiveIntegerField(default=0)),
-                ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='purchases', to='courses.course')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='purchases', to=settings.AUTH_USER_MODEL)),
+                (
+                    "date_created",
+                    models.DateTimeField(auto_now_add=True, db_index=True, null=True),
+                ),
+                ("date_updated", models.DateTimeField(auto_now=True, null=True)),
+                ("is_active", models.BooleanField(default=True)),
+                ("slug", models.SlugField(blank=True, unique=True)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("amount", models.DecimalField(decimal_places=2, max_digits=10)),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("pending", "Pending"),
+                            ("completed", "Completed"),
+                            ("failed", "Failed"),
+                        ],
+                        default="pending",
+                        max_length=20,
+                    ),
+                ),
+                ("xp_earned", models.PositiveIntegerField(default=0)),
+                (
+                    "course",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="purchases",
+                        to="courses.course",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="purchases",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'constraints': [models.UniqueConstraint(fields=('user', 'course'), name='unique_user_course_enrollment')],
+                "constraints": [
+                    models.UniqueConstraint(
+                        fields=("user", "course"), name="unique_user_course_enrollment"
+                    )
+                ],
             },
         ),
     ]

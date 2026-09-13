@@ -1,6 +1,7 @@
 import os
 import sys
 
+
 def init(verbose=False):
     sys.path.append(os.path.abspath(".."))
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")

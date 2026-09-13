@@ -1,6 +1,10 @@
 from .base import *
 
 
+REST_FRAMEWORK.update({
+    "TEST_REQUEST_DEFAULT_FORMAT": "json"
+})
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -9,9 +13,7 @@ DATABASES = {
 }
 
 
-REST_FRAMEWORK.update({
-    "TEST_REQUEST_DEFAULT_FORMAT": "json"
-})
+REST_FRAMEWORK.update({"TEST_REQUEST_DEFAULT_FORMAT": "json"})
 
 
 # Disable migrations for speed
@@ -31,3 +33,11 @@ PASSWORD_HASHERS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Cache
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-test",
+    }
+}

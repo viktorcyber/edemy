@@ -97,3 +97,7 @@ CSP_CONNECT_SRC = "'self' https://api.example.com"
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 MEDIA_ROOT = "/var/www/media/"
+
+SPECTACULAR_SETTINGS.update({
+    "SERVE_PERMISSIONS": "rest_framework.permissions.IsAdminUser"
+})

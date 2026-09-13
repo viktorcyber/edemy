@@ -27,7 +27,7 @@ class User(AbstractUser):
     picture = models.ImageField(
         upload_to="avatars/%y/%m/%d",
         blank=True,
-        default=f"https://www.gravatar.com/avatar/xxx.@gmail.com?{urlencode({"d": "identicon", "s": 80})}",
+        default=f"https://www.gravatar.com/avatar/xxx.@gmail.com?{urlencode({'d': 'identicon', 's': 80})}",
         storage=MediaCloudinaryStorage(),
     )
     role = models.CharField(

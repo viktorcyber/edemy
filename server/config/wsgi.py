@@ -13,8 +13,8 @@ from django.core.wsgi import get_wsgi_application
 from config.settings import base
 
 if base.DEBUG:
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 else:
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.production')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.production")
 
 application = get_wsgi_application()

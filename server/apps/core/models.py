@@ -3,7 +3,9 @@ from django.utils.text import slugify
 
 
 class TimestampMixin(models.Model):
-    date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True, db_index=True)
+    date_created = models.DateTimeField(
+        auto_now_add=True, null=True, blank=True, db_index=True
+    )
     date_updated = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     class Meta:

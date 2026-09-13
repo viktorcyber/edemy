@@ -19,10 +19,14 @@ class ClerkWebhookService:
         email_addresses = data.get("email_addresses") or []
         primary_email_id = data.get("primary_email_address_id")
         email = next(
-                (addr.get("email_address") for addr in email_addresses if addr.get("id") == primary_email_id),
-                email_addresses[0].get("email_address") if email_addresses else ""
-            )
-        
+            (
+                addr.get("email_address")
+                for addr in email_addresses
+                if addr.get("id") == primary_email_id
+            ),
+            email_addresses[0].get("email_address") if email_addresses else "",
+        )
+
         avatar = data.get("image_url") or data.get("profile_image_url")
         is_banned = data.get("banned", False) or data.get("locked", False)
 
@@ -32,13 +36,11 @@ class ClerkWebhookService:
             "first_name": data.get("first_name") or "",
             "last_name": data.get("last_name") or "",
             "is_active": not is_banned,
-            "picture": avatar
+            "picture": avatar,
         }
 
         with transaction.atomic():
-            user, created = User.objects.get_or_create(
-                id=data["id"], defaults=defaults
-            )
+            user, created = User.objects.get_or_create(id=data["id"], defaults=defaults)
             if not created:
                 for key, value in defaults.items():
                     setattr(user, key, value)
